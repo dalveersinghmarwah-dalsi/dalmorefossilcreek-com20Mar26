@@ -100,58 +100,58 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Celebrations Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale">
-                <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="text-rose-600" size={24} />
-                </div>
-                <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                  Celebrations
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Weddings, anniversaries, and special occasions. Create unforgettable memories in our elegant spaces.
-                </p>
-                <Link href="/celebrations">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
+              <Link href="/celebrations">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <Heart className="text-rose-600" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Celebrations
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Weddings, anniversaries, and special occasions. Create unforgettable memories in our elegant spaces.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     Learn More <ChevronRight size={16} />
-                  </a>
-                </Link>
-              </div>
+                  </span>
+                </div>
+              </Link>
 
               {/* Corporate Events Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale">
-                <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="text-rose-600" size={24} />
-                </div>
-                <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                  Corporate Events
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Conferences, meetings, and team events with state-of-the-art facilities and professional support.
-                </p>
-                <Link href="/corporate">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
+              <Link href="/corporate">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="text-rose-600" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Corporate Events
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Conferences, meetings, and team events with state-of-the-art facilities and professional support.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     Learn More <ChevronRight size={16} />
-                  </a>
-                </Link>
-              </div>
+                  </span>
+                </div>
+              </Link>
 
               {/* Receptions Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale">
-                <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
-                  <Sparkles className="text-rose-600" size={24} />
-                </div>
-                <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                  Receptions
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Grand reception halls for up to 220 guests with elegant dining and entertainment spaces.
-                </p>
-                <Link href="/prices">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
+              <Link href="/prices">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <Sparkles className="text-rose-600" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Receptions
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Grand reception halls for up to 220 guests with elegant dining and entertainment spaces.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     View Pricing <ChevronRight size={16} />
-                  </a>
-                </Link>
-              </div>
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
