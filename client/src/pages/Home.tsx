@@ -3,15 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ASSETS, VENUE_INFO, AMENITIES } from "../../../shared/const";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ChevronRight, Heart, Users, Sparkles } from "lucide-react";
 
 export default function Home() {
-  const aboutRef = useScrollAnimation();
-  const servicesRef = useScrollAnimation();
-  const amenitiesRef = useScrollAnimation();
-  const ctaRef = useScrollAnimation();
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -55,26 +49,26 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section ref={aboutRef} className="py-16 md:py-24 bg-white scroll-animate">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="scroll-animate-left">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900 animate-fade-in-up">
                   Welcome to Dalmore
                 </h2>
-                <p className="text-lg text-gray-600 mb-4 leading-relaxed animate-fade-in-up">
+                <p className="text-lg text-gray-600 mb-4 leading-relaxed animate-fade-in-up animate-delay-100">
                   Discover the perfect venue for your wedding, celebration, or corporate event. Dalmore Fossil Creek offers luxurious indoor and outdoor spaces with stunning views and complete amenities.
                 </p>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed animate-fade-in-up animate-delay-100">
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed animate-fade-in-up animate-delay-200">
                   Our versatile event space accommodates intimate gatherings and grand celebrations alike, with professional staff ready to make your event unforgettable.
                 </p>
                 <Link href="/amenities">
-                  <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth animate-fade-in-up animate-delay-200">
+                  <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth animate-fade-in-up animate-delay-300">
                     Explore Amenities <ChevronRight size={18} className="ml-2" />
                   </Button>
                 </Link>
               </div>
-              <div className="relative scroll-animate-right">
+              <div className="relative animate-fade-in-up animate-delay-200">
                 <img
                   src={ASSETS.images.ceremony}
                   alt="Ceremony"
@@ -87,9 +81,9 @@ export default function Home() {
         </section>
 
         {/* Services Highlight */}
-        <section ref={servicesRef} className="py-16 md:py-24 bg-gray-50 scroll-animate">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12 scroll-animate">
+            <div className="text-center mb-12 animate-fade-in-up">
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900">
                 Our Services
               </h2>
@@ -101,7 +95,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Celebrations Card */}
               <Link href="/celebrations">
-                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 cursor-pointer animate-fade-in-up animate-delay-100">
                   <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                     <Heart className="text-rose-600" size={24} />
                   </div>
@@ -119,7 +113,7 @@ export default function Home() {
 
               {/* Corporate Events Card */}
               <Link href="/corporate">
-                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 cursor-pointer animate-fade-in-up animate-delay-200">
                   <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                     <Users className="text-rose-600" size={24} />
                   </div>
@@ -137,7 +131,7 @@ export default function Home() {
 
               {/* Receptions Card */}
               <Link href="/prices">
-                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 scroll-animate-scale cursor-pointer">
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 cursor-pointer animate-fade-in-up animate-delay-300">
                   <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                     <Sparkles className="text-rose-600" size={24} />
                   </div>
@@ -157,9 +151,9 @@ export default function Home() {
         </section>
 
         {/* Amenities Preview */}
-        <section ref={amenitiesRef} className="py-16 md:py-24 bg-white scroll-animate">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-gray-900 text-center scroll-animate">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-gray-900 text-center animate-fade-in-up">
               Venue Amenities
             </h2>
 
@@ -167,7 +161,7 @@ export default function Home() {
               {AMENITIES.slice(0, 6).map((amenity: any, index: number) => (
                 <div
                   key={index}
-                  className="p-6 border border-gray-200 rounded-lg hover:border-rose-300 hover:shadow-md transition-smooth scroll-animate"
+                  className="p-6 border border-gray-200 rounded-lg hover:border-rose-300 hover:shadow-md transition-smooth animate-fade-in-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-xl font-serif font-bold mb-3 text-gray-900">
@@ -180,7 +174,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-12 scroll-animate">
+            <div className="text-center mt-12 animate-fade-in-up animate-delay-500">
               <Link href="/amenities">
                 <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth">
                   View All Amenities
@@ -191,16 +185,16 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section ref={ctaRef} className="py-16 md:py-24 bg-gradient-to-r from-rose-600 to-rose-700 text-white scroll-animate">
-          <div className="container mx-auto px-4 text-center">
+        <section className="py-16 md:py-24 bg-gradient-to-r from-rose-600 to-rose-700 text-white">
+          <div className="container mx-auto px-4 text-center animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
               Ready to Plan Your Event?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-fade-in-up animate-delay-100">
               Schedule a tour of our beautiful venue and discover why Dalmore Fossil Creek is the perfect choice for your celebration.
             </p>
             <Link href="/schedule-tour">
-              <Button className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6 transition-smooth">
+              <Button className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6 transition-smooth animate-fade-in-up animate-delay-200">
                 Schedule Your Tour Today
               </Button>
             </Link>
