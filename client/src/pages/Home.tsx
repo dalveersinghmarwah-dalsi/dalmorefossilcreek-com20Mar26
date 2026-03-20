@@ -24,22 +24,22 @@ export default function Home() {
           </div>
 
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight animate-fade-in-up">
               {VENUE_INFO.name}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light animate-fade-in-up animate-delay-100">
               {VENUE_INFO.tagline}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-200">
               <Link href="/schedule-tour">
-                <Button className="bg-rose-600 hover:bg-rose-700 text-white text-lg px-8 py-6">
+                <Button className="bg-rose-600 hover:bg-rose-700 text-white text-lg px-8 py-6 transition-smooth">
                   Schedule Tour
                 </Button>
               </Link>
               <Link href="/gallery">
                 <Button
                   variant="outline"
-                  className="text-white border-white hover:bg-white/10 text-lg px-8 py-6"
+                  className="text-white border-white hover:bg-white/10 text-lg px-8 py-6 transition-smooth"
                 >
                   View Gallery
                 </Button>
@@ -52,27 +52,27 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="animate-slide-in-left">
                 <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900">
                   Welcome to Dalmore
                 </h2>
-                <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-4 leading-relaxed animate-fade-in-up">
                   Discover the perfect venue for your wedding, celebration, or corporate event. Dalmore Fossil Creek offers luxurious indoor and outdoor spaces with stunning views and complete amenities.
                 </p>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed animate-fade-in-up animate-delay-100">
                   Our versatile event space accommodates intimate gatherings and grand celebrations alike, with professional staff ready to make your event unforgettable.
                 </p>
                 <Link href="/amenities">
-                  <Button className="bg-rose-600 hover:bg-rose-700 text-white">
+                  <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth animate-fade-in-up animate-delay-200">
                     Explore Amenities <ChevronRight size={18} className="ml-2" />
                   </Button>
                 </Link>
               </div>
-              <div className="relative">
+              <div className="relative animate-slide-in-right">
                 <img
                   src={ASSETS.images.ceremony}
                   alt="Ceremony"
-                  className="rounded-lg shadow-lg w-full h-96 object-cover"
+                  className="rounded-lg shadow-lg w-full h-96 object-cover hover:shadow-xl transition-smooth"
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-rose-100 rounded-lg -z-10"></div>
               </div>
@@ -83,7 +83,7 @@ export default function Home() {
         {/* Services Highlight */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 animate-fade-in-up">
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900">
                 Our Services
               </h2>
@@ -94,7 +94,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Celebrations Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 animate-fade-in-up animate-delay-100">
                 <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                   <Heart className="text-rose-600" size={24} />
                 </div>
@@ -105,14 +105,14 @@ export default function Home() {
                   Weddings, anniversaries, and special occasions. Create unforgettable memories in our elegant spaces.
                 </p>
                 <Link href="/celebrations">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2">
+                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     Learn More <ChevronRight size={16} />
                   </a>
                 </Link>
               </div>
 
               {/* Corporate Events Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 animate-fade-in-up animate-delay-200">
                 <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                   <Users className="text-rose-600" size={24} />
                 </div>
@@ -123,14 +123,14 @@ export default function Home() {
                   Conferences, meetings, and team events with state-of-the-art facilities and professional support.
                 </p>
                 <Link href="/corporate">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2">
+                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     Learn More <ChevronRight size={16} />
                   </a>
                 </Link>
               </div>
 
               {/* Receptions Card */}
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-smooth p-8 animate-fade-in-up animate-delay-300">
                 <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4">
                   <Sparkles className="text-rose-600" size={24} />
                 </div>
@@ -141,7 +141,7 @@ export default function Home() {
                   Grand reception halls for up to 220 guests with elegant dining and entertainment spaces.
                 </p>
                 <Link href="/prices">
-                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2">
+                  <a className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth">
                     View Pricing <ChevronRight size={16} />
                   </a>
                 </Link>
@@ -153,7 +153,7 @@ export default function Home() {
         {/* Amenities Preview */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-gray-900 text-center">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-12 text-gray-900 text-center animate-fade-in-up">
               Venue Amenities
             </h2>
 
@@ -161,7 +161,8 @@ export default function Home() {
               {AMENITIES.slice(0, 6).map((amenity: any, index: number) => (
                 <div
                   key={index}
-                  className="p-6 border border-gray-200 rounded-lg hover:border-rose-300 hover:shadow-md transition-all"
+                  className="p-6 border border-gray-200 rounded-lg hover:border-rose-300 hover:shadow-md transition-smooth animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-xl font-serif font-bold mb-3 text-gray-900">
                     {amenity.title}
@@ -173,9 +174,9 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 animate-fade-in-up animate-delay-500">
               <Link href="/amenities">
-                <Button className="bg-rose-600 hover:bg-rose-700 text-white">
+                <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth">
                   View All Amenities
                 </Button>
               </Link>
@@ -185,15 +186,15 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-16 md:py-24 bg-gradient-to-r from-rose-600 to-rose-700 text-white">
-          <div className="container mx-auto px-4 text-center">
+          <div className="container mx-auto px-4 text-center animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
               Ready to Plan Your Event?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-fade-in-up animate-delay-100">
               Schedule a tour of our beautiful venue and discover why Dalmore Fossil Creek is the perfect choice for your celebration.
             </p>
             <Link href="/schedule-tour">
-              <Button className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6">
+              <Button className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6 transition-smooth animate-fade-in-up animate-delay-200">
                 Schedule Your Tour Today
               </Button>
             </Link>

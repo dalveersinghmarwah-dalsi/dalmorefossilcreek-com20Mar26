@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
-import { VENUE_INFO } from "../../../shared/const";
+import { VENUE_INFO, ASSETS } from "../../../shared/const";
 import { toast } from "sonner";
 
 export default function ScheduleTour() {
@@ -55,27 +56,22 @@ export default function ScheduleTour() {
       <Header />
 
       <main className="flex-1">
-        <section className="py-12 md:py-16 bg-gradient-to-r from-rose-50 to-white">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900">
-              Schedule a Tour
-            </h1>
-            <p className="text-lg text-gray-600">
-              Experience Dalmore Fossil Creek in person
-            </p>
-          </div>
-        </section>
+        <HeroSection
+          title="Schedule a Tour"
+          subtitle="Experience Dalmore Fossil Creek in person"
+          backgroundImage={ASSETS.images.reception}
+        />
 
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Form */}
-              <div>
+              <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-serif font-bold mb-8 text-gray-900">
                   Request a Tour
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
+                  <div className="animate-fade-in-up">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
                     </label>
@@ -84,13 +80,13 @@ export default function ScheduleTour() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
+                    <div className="animate-fade-in-up animate-delay-100">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Email *
                       </label>
@@ -99,11 +95,11 @@ export default function ScheduleTour() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                         placeholder="your@email.com"
                       />
                     </div>
-                    <div>
+                    <div className="animate-fade-in-up animate-delay-200">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Phone *
                       </label>
@@ -112,13 +108,13 @@ export default function ScheduleTour() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                         placeholder="(123) 456-7890"
                       />
                     </div>
                   </div>
 
-                  <div>
+                  <div className="animate-fade-in-up animate-delay-300">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Event Type *
                     </label>
@@ -126,7 +122,7 @@ export default function ScheduleTour() {
                       name="eventType"
                       value={formData.eventType}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                     >
                       <option value="">Select an event type</option>
                       <option value="wedding">Wedding</option>
@@ -138,7 +134,7 @@ export default function ScheduleTour() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
+                    <div className="animate-fade-in-up animate-delay-400">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Preferred Tour Date
                       </label>
@@ -147,10 +143,10 @@ export default function ScheduleTour() {
                         name="eventDate"
                         value={formData.eventDate}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       />
                     </div>
-                    <div>
+                    <div className="animate-fade-in-up animate-delay-500">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Expected Guest Count
                       </label>
@@ -159,13 +155,13 @@ export default function ScheduleTour() {
                         name="guestCount"
                         value={formData.guestCount}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                         placeholder="50"
                       />
                     </div>
                   </div>
 
-                  <div>
+                  <div className="animate-fade-in-up animate-delay-500">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Additional Message
                     </label>
@@ -174,14 +170,14 @@ export default function ScheduleTour() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="Tell us more about your event..."
                     ></textarea>
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3"
+                    className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 transition-smooth"
                   >
                     Request Tour
                   </Button>
@@ -189,43 +185,43 @@ export default function ScheduleTour() {
               </div>
 
               {/* Contact Info */}
-              <div>
+              <div className="animate-slide-in-right">
                 <h2 className="text-3xl font-serif font-bold mb-8 text-gray-900">
                   Contact Information
                 </h2>
                 <div className="space-y-8">
-                  <div className="bg-gray-50 p-8 rounded-lg">
+                  <div className="bg-gray-50 p-8 rounded-lg animate-fade-in-up animate-delay-100 hover:shadow-lg transition-smooth">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       Address
                     </h3>
                     <p className="text-gray-600">{VENUE_INFO.address}</p>
                   </div>
 
-                  <div className="bg-gray-50 p-8 rounded-lg">
+                  <div className="bg-gray-50 p-8 rounded-lg animate-fade-in-up animate-delay-200 hover:shadow-lg transition-smooth">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       Phone
                     </h3>
                     <a
                       href={`tel:${VENUE_INFO.phone}`}
-                      className="text-rose-600 hover:text-rose-700 font-medium"
+                      className="text-rose-600 hover:text-rose-700 font-medium transition-smooth"
                     >
                       {VENUE_INFO.phone}
                     </a>
                   </div>
 
-                  <div className="bg-gray-50 p-8 rounded-lg">
+                  <div className="bg-gray-50 p-8 rounded-lg animate-fade-in-up animate-delay-300 hover:shadow-lg transition-smooth">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       Email
                     </h3>
                     <a
                       href={`mailto:${VENUE_INFO.email}`}
-                      className="text-rose-600 hover:text-rose-700 font-medium"
+                      className="text-rose-600 hover:text-rose-700 font-medium transition-smooth"
                     >
                       {VENUE_INFO.email}
                     </a>
                   </div>
 
-                  <div className="bg-rose-50 p-8 rounded-lg border-2 border-rose-200">
+                  <div className="bg-rose-50 p-8 rounded-lg border-2 border-rose-200 animate-fade-in-up animate-delay-400">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       Hours
                     </h3>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
-import { VENUE_INFO } from "../../../shared/const";
+import { VENUE_INFO, ASSETS } from "../../../shared/const";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
@@ -43,27 +44,22 @@ export default function Contact() {
       <Header />
 
       <main className="flex-1">
-        <section className="py-12 md:py-16 bg-gradient-to-r from-rose-50 to-white">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900">
-              Contact Us
-            </h1>
-            <p className="text-lg text-gray-600">
-              Get in touch with our team
-            </p>
-          </div>
-        </section>
+        <HeroSection
+          title="Contact Us"
+          subtitle="Get in touch with our team"
+          backgroundImage={ASSETS.images.gallery[5]}
+        />
 
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div>
+              <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-serif font-bold mb-8 text-gray-900">
                   Send us a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
+                  <div className="animate-fade-in-up">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Name
                     </label>
@@ -72,12 +68,12 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="Your name"
                     />
                   </div>
 
-                  <div>
+                  <div className="animate-fade-in-up animate-delay-100">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email
                     </label>
@@ -86,12 +82,12 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="your@email.com"
                     />
                   </div>
 
-                  <div>
+                  <div className="animate-fade-in-up animate-delay-200">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subject
                     </label>
@@ -100,12 +96,12 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="How can we help?"
                     />
                   </div>
 
-                  <div>
+                  <div className="animate-fade-in-up animate-delay-300">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Message
                     </label>
@@ -114,14 +110,14 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={6}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent outline-none transition-smooth"
                       placeholder="Your message..."
                     ></textarea>
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3"
+                    className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 transition-smooth animate-fade-in-up animate-delay-400"
                   >
                     Send Message
                   </Button>
@@ -129,13 +125,13 @@ export default function Contact() {
               </div>
 
               {/* Contact Information */}
-              <div>
+              <div className="animate-slide-in-right">
                 <h2 className="text-3xl font-serif font-bold mb-8 text-gray-900">
                   Get in Touch
                 </h2>
 
                 <div className="space-y-6">
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 animate-fade-in-up animate-delay-100">
                     <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="text-rose-600" size={24} />
                     </div>
@@ -147,7 +143,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 animate-fade-in-up animate-delay-200">
                     <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="text-rose-600" size={24} />
                     </div>
@@ -157,14 +153,14 @@ export default function Contact() {
                       </h3>
                       <a
                         href={`tel:${VENUE_INFO.phone}`}
-                        className="text-rose-600 hover:text-rose-700 font-medium"
+                        className="text-rose-600 hover:text-rose-700 font-medium transition-smooth"
                       >
                         {VENUE_INFO.phone}
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 animate-fade-in-up animate-delay-300">
                     <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="text-rose-600" size={24} />
                     </div>
@@ -174,14 +170,14 @@ export default function Contact() {
                       </h3>
                       <a
                         href={`mailto:${VENUE_INFO.email}`}
-                        className="text-rose-600 hover:text-rose-700 font-medium"
+                        className="text-rose-600 hover:text-rose-700 font-medium transition-smooth"
                       >
                         {VENUE_INFO.email}
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 animate-fade-in-up animate-delay-400">
                     <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Clock className="text-rose-600" size={24} />
                     </div>
@@ -199,7 +195,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="mt-8 p-8 bg-rose-50 rounded-lg border-2 border-rose-200">
+                <div className="mt-8 p-8 bg-rose-50 rounded-lg border-2 border-rose-200 animate-fade-in-up animate-delay-500">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Quick Response
                   </h3>
