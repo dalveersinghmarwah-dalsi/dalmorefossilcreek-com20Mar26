@@ -31,19 +31,16 @@ export default function Home() {
               {VENUE_INFO.tagline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-200">
-              <Link href="/schedule-tour">
-                <Button className="bg-rose-600 hover:bg-rose-700 text-white text-lg px-8 py-6 transition-smooth hover-lift">
+              <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white text-lg px-8 py-6 transition-smooth hover-lift">
+                <Link href="/schedule-tour">
                   Schedule Tour
-                </Button>
-              </Link>
-              <Link href="/gallery">
-                <Button
-                  variant="outline"
-                  className="text-white border-white hover:bg-white/10 text-lg px-8 py-6 transition-smooth hover-lift"
-                >
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="text-white border-white hover:bg-white/10 text-lg px-8 py-6 transition-smooth hover-lift">
+                <Link href="/gallery">
                   View Gallery
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -71,11 +68,11 @@ export default function Home() {
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed animate-fade-in-up animate-delay-200">
                   Our versatile event space accommodates intimate gatherings and grand celebrations alike, with professional staff ready to make your event unforgettable.
                 </p>
-                <Link href="/amenities">
-                  <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth hover-lift animate-fade-in-up animate-delay-300">
+                <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth hover-lift animate-fade-in-up animate-delay-300">
+                  <Link href="/amenities">
                     Explore Amenities <ChevronRight size={18} className="ml-2" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
               <div className="relative animate-fade-in-up animate-delay-200">
                 <div className="relative group">
@@ -195,11 +192,11 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-16 animate-fade-in-up animate-delay-500">
-              <Link href="/amenities">
-                <Button className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth hover-lift px-8 py-3">
+              <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white transition-smooth hover-lift px-8 py-3">
+                <Link href="/amenities">
                   View All Amenities
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -218,11 +215,11 @@ export default function Home() {
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 animate-fade-in-up animate-delay-100">
               Schedule a tour of our beautiful venue and discover why Dalmore Fossil Creek is the perfect choice for your celebration.
             </p>
-            <Link href="/schedule-tour">
-              <Button className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6 transition-smooth hover-lift animate-fade-in-up animate-delay-200 font-semibold">
+            <Button asChild className="bg-white text-rose-600 hover:bg-gray-100 text-lg px-8 py-6 transition-smooth hover-lift animate-fade-in-up animate-delay-200 font-semibold">
+              <Link href="/schedule-tour">
                 Schedule Your Tour Today
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
       </main>
