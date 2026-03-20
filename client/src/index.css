@@ -351,6 +351,52 @@
     box-shadow: 0 0 30px rgba(196, 85, 109, 0.3);
   }
 
+  /* Scroll trigger animations */
+  .scroll-trigger {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .scroll-trigger.in-view {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .scroll-trigger-left {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  .scroll-trigger-left.in-view {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .scroll-trigger-right {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  .scroll-trigger-right.in-view {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .scroll-trigger-scale {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .scroll-trigger-scale.in-view {
+    animation: scaleIn 0.8s ease-out forwards;
+  }
+
+  .scroll-trigger-bounce {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .scroll-trigger-bounce.in-view {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
   /* Scroll animation states */
   .scroll-animate {
     opacity: 0;
