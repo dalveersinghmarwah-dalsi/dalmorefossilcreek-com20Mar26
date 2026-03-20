@@ -18,7 +18,7 @@ export default function Amenities() {
         />
 
         <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4 mx-8 md:mx-16 lg:mx-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
               <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-serif font-bold mb-6 text-gray-900">

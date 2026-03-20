@@ -18,8 +18,8 @@ export default function Prices() {
         />
 
         <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4 mx-8 md:mx-16 lg:mx-24">
-            <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12">
+            <div>
               <div className="bg-rose-50 rounded-lg p-8 md:p-12 text-center mb-12 animate-fade-in-up">
                 <h2 className="text-3xl font-serif font-bold mb-4 text-gray-900">
                   Starting at $3,400
