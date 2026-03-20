@@ -18,7 +18,7 @@ export default function Corporate() {
         />
 
         <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 mx-8 md:mx-16 lg:mx-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <div className="relative animate-slide-in-left">
                 <img
