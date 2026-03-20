@@ -18,39 +18,37 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
-          <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src={ASSETS.logo} alt="Dalmore" className="h-12 w-auto" />
-            <span className="hidden sm:inline font-serif text-lg font-semibold text-gray-900">
-              DALMORE
-            </span>
-          </a>
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <img src={ASSETS.logo} alt="Dalmore" className="h-12 w-auto" />
+          <span className="hidden sm:inline font-serif text-lg font-semibold text-gray-900">
+            DALMORE
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
           {NAV_ITEMS.map((item: any) => (
-            <Link key={item.href} href={item.href}>
-              <a
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded ${
-                  isActive(item.href)
-                    ? "text-rose-600 bg-rose-50"
-                    : "text-gray-700 hover:text-rose-600 hover:bg-rose-50"
-                }`}
-              >
-                {item.label}
-              </a>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-3 py-2 text-sm font-medium transition-colors rounded ${
+                isActive(item.href)
+                  ? "text-rose-600 bg-rose-50"
+                  : "text-gray-700 hover:text-rose-600 hover:bg-rose-50"
+              }`}
+            >
+              {item.label}
             </Link>
           ))}
         </div>
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <Link href="/schedule-tour">
-            <Button className="bg-rose-600 hover:bg-rose-700 text-white">
+          <Button asChild className="bg-rose-600 hover:bg-rose-700 text-white">
+            <Link href="/schedule-tour">
               Schedule Tour
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -67,27 +65,24 @@ export default function Header() {
         <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {NAV_ITEMS.map((item: any) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  onClick={() => setIsOpen(false)}
-                  className={`px-4 py-2 text-sm font-medium rounded transition-colors block ${
-                    isActive(item.href)
-                      ? "text-rose-600 bg-rose-50"
-                      : "text-gray-700 hover:text-rose-600 hover:bg-rose-50"
-                  }`}
-                >
-                  {item.label}
-                </a>
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={`px-4 py-2 text-sm font-medium rounded transition-colors block ${
+                  isActive(item.href)
+                    ? "text-rose-600 bg-rose-50"
+                    : "text-gray-700 hover:text-rose-600 hover:bg-rose-50"
+                }`}
+              >
+                {item.label}
               </Link>
             ))}
-            <Link href="/schedule-tour">
-              <Button
-                onClick={() => setIsOpen(false)}
-                className="w-full bg-rose-600 hover:bg-rose-700 text-white"
-              >
+            <Button asChild className="w-full bg-rose-600 hover:bg-rose-700 text-white">
+              <Link href="/schedule-tour" onClick={() => setIsOpen(false)}>
                 Schedule Tour
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       )}
