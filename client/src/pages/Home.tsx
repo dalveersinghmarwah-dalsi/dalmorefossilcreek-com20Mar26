@@ -3,15 +3,26 @@ import { Button } from "@/components/ui/button";
 import { ASSETS, VENUE_INFO, AMENITIES } from "../../../shared/const";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ChevronRight, Heart, Users, Sparkles, ArrowDown, Star, MapPin, Clock } from "lucide-react";
+import { ChevronRight, Heart, Users, Sparkles, ArrowDown, Star, MapPin, Clock, Award, Zap, TrendingUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const stats = [
+    { number: "220+", label: "Guest Capacity", icon: Users },
+    { number: "15+", label: "Years Experience", icon: Award },
+    { number: "500+", label: "Events Hosted", icon: TrendingUp },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -25,7 +36,8 @@ export default function Home() {
             style={{
               backgroundImage: `url('${ASSETS.images.hero}')`,
               backgroundPosition: "center",
-              animation: "zoom-in 20s ease-out infinite alternate",
+              transform: `translateY(${scrollY * 0.5}px)`,
+              transition: 'transform 0.1s ease-out',
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50"></div>
@@ -64,6 +76,31 @@ export default function Home() {
           {/* Animated scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <ArrowDown className="text-white opacity-80" size={32} />
+          </div>
+        </section>
+
+        {/* STATS SECTION - Animated counters */}
+        <section className="py-16 bg-gradient-to-r from-rose-600 to-rose-700 text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                    <div className="flex justify-center mb-4 transform hover:scale-110 transition-transform duration-300">
+                      <Icon className="text-white opacity-80" size={40} />
+                    </div>
+                    <div className="text-5xl font-bold mb-2 font-serif">{stat.number}</div>
+                    <p className="text-lg opacity-90">{stat.label}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -109,7 +146,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICES SECTION - Dynamic cards */}
+        {/* SERVICES SECTION - Dynamic cards with hover states */}
         <section className="py-24 bg-white relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="text-center mb-20 animate-fade-in-up">
@@ -127,12 +164,12 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Card 1 */}
-              <div className="animate-fade-in-up animate-delay-100 group">
+              <div className="animate-fade-in-up animate-delay-100 group" onMouseEnter={() => setHoveredCard(0)} onMouseLeave={() => setHoveredCard(null)}>
                 <Link href="/celebrations">
                   <div className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform transition-all duration-300 ${hoveredCard === 0 ? 'scale-125 rotate-12' : 'scale-100'}`}>
                         <Heart className="text-white" size={32} />
                       </div>
                       <h3 className="text-2xl font-serif font-bold mb-4 text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
@@ -150,12 +187,12 @@ export default function Home() {
               </div>
 
               {/* Card 2 */}
-              <div className="animate-fade-in-up animate-delay-200 group">
+              <div className="animate-fade-in-up animate-delay-200 group" onMouseEnter={() => setHoveredCard(1)} onMouseLeave={() => setHoveredCard(null)}>
                 <Link href="/corporate">
                   <div className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform transition-all duration-300 ${hoveredCard === 1 ? 'scale-125 rotate-12' : 'scale-100'}`}>
                         <Users className="text-white" size={32} />
                       </div>
                       <h3 className="text-2xl font-serif font-bold mb-4 text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
@@ -173,12 +210,12 @@ export default function Home() {
               </div>
 
               {/* Card 3 */}
-              <div className="animate-fade-in-up animate-delay-300 group">
+              <div className="animate-fade-in-up animate-delay-300 group" onMouseEnter={() => setHoveredCard(2)} onMouseLeave={() => setHoveredCard(null)}>
                 <Link href="/prices">
                   <div className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl flex items-center justify-center mb-6 transform transition-all duration-300 ${hoveredCard === 2 ? 'scale-125 rotate-12' : 'scale-100'}`}>
                         <Sparkles className="text-white" size={32} />
                       </div>
                       <h3 className="text-2xl font-serif font-bold mb-4 text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
@@ -198,10 +235,55 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AMENITIES SECTION - Grid with hover effects */}
+        {/* FEATURES SECTION - New animated features grid */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-rose-50 rounded-full -mr-48 opacity-50"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-rose-50 rounded-full -mr-48 -mt-48 opacity-50"></div>
 
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-20 animate-fade-in-up">
+              <div className="inline-block px-4 py-2 bg-rose-100 text-rose-600 rounded-full text-sm font-semibold mb-6">
+                Why Choose Us
+              </div>
+              <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+                Premium Features
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-rose-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: MapPin, title: "Prime Location", desc: "Scenic views and easy access" },
+                { icon: Zap, title: "Modern Amenities", desc: "State-of-the-art facilities" },
+                { icon: Clock, title: "Flexible Hours", desc: "Available for all occasions" },
+                { icon: Award, title: "Expert Team", desc: "Professional event planning" },
+              ].map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className="animate-fade-in-up group"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-rose-300 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg cursor-pointer h-full">
+                      <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-rose-600 rounded-lg flex items-center justify-center mb-4 transform group-hover:scale-125 transition-transform duration-300">
+                        <Icon className="text-white" size={24} />
+                      </div>
+                      <h3 className="text-lg font-serif font-bold mb-2 text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {feature.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* AMENITIES SECTION - Grid with hover effects */}
+        <section className="py-24 bg-white relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-20 animate-fade-in-up">
               <div className="inline-block px-4 py-2 bg-rose-100 text-rose-600 rounded-full text-sm font-semibold mb-6">
@@ -221,7 +303,7 @@ export default function Home() {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-rose-300 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl cursor-pointer h-full">
-                    <div className="w-14 h-14 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-125 transition-transform duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
                       <Star className="text-white" size={24} />
                     </div>
                     <h3 className="text-xl font-serif font-bold mb-4 text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
@@ -241,6 +323,52 @@ export default function Home() {
                   View All Amenities
                 </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS SECTION - New section */}
+        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-50 rounded-full -mr-48 -mb-48 opacity-50"></div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-20 animate-fade-in-up">
+              <div className="inline-block px-4 py-2 bg-rose-100 text-rose-600 rounded-full text-sm font-semibold mb-6">
+                Success Stories
+              </div>
+              <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
+                Client Testimonials
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-rose-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { name: "Sarah & James", event: "Wedding", quote: "Dalmore made our wedding day absolutely perfect. The venue is stunning!" },
+                { name: "Michael Corp", event: "Corporate Event", quote: "Professional team, beautiful space. Our conference was a huge success!" },
+                { name: "Emma & Friends", event: "Birthday Celebration", quote: "Amazing atmosphere and incredible service. Highly recommended!" },
+              ].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="animate-fade-in-up group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 h-full">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 mb-6 italic leading-relaxed">
+                      "{testimonial.quote}"
+                    </p>
+                    <div className="border-t border-gray-200 pt-4">
+                      <p className="font-serif font-bold text-gray-900">{testimonial.name}</p>
+                      <p className="text-rose-600 text-sm">{testimonial.event}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
