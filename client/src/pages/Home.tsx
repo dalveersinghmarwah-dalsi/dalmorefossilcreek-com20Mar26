@@ -110,67 +110,61 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Celebrations Card */}
-              <Button asChild className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0s' }}>
-                <Link href="/celebrations">
-                  <div>
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
-                    <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
-                      <Heart className="text-rose-600" size={24} />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                      Celebrations
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      Weddings, anniversaries, and special occasions. Create unforgettable memories in our elegant spaces.
-                    </p>
-                    <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
-                      Learn More <ChevronRight size={16} />
-                    </span>
+              <Link href="/celebrations">
+                <div className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0s' }}>
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
+                    <Heart className="text-rose-600" size={24} />
                   </div>
-                </Link>
-              </Button>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Celebrations
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Weddings, anniversaries, and special occasions. Create unforgettable memories in our elegant spaces.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
+                    Learn More <ChevronRight size={16} />
+                  </span>
+                </div>
+              </Link>
 
               {/* Corporate Events Card */}
-              <Button asChild className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0.1s' }}>
-                <Link href="/corporate">
-                  <div>
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
-                    <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
-                      <Users className="text-rose-600" size={24} />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                      Corporate Events
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      Conferences, meetings, and team events with state-of-the-art facilities and professional support.
-                    </p>
-                    <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
-                      Learn More <ChevronRight size={16} />
-                    </span>
+              <Link href="/corporate">
+                <div className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0.1s' }}>
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
+                    <Users className="text-rose-600" size={24} />
                   </div>
-                </Link>
-              </Button>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Corporate Events
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Conferences, meetings, and team events with state-of-the-art facilities and professional support.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
+                    Learn More <ChevronRight size={16} />
+                  </span>
+                </div>
+              </Link>
 
               {/* Receptions Card */}
-              <Button asChild className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0.2s' }}>
-                <Link href="/prices">
-                  <div>
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
-                    <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
-                      <Sparkles className="text-rose-600" size={24} />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
-                      Receptions
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      Grand reception halls for up to 220 guests with elegant dining and entertainment spaces.
-                    </p>
-                    <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
-                      View Pricing <ChevronRight size={16} />
-                    </span>
+              <Link href="/prices">
+                <div className={`bg-white rounded-lg shadow-md hover-lift hover-glow p-8 cursor-pointer relative group overflow-hidden scroll-trigger-bounce ${servicesRef.isInView ? 'in-view' : ''}`} style={{ animationDelay: '0.2s' }}>
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-smooth-lg"></div>
+                  <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-smooth">
+                    <Sparkles className="text-rose-600" size={24} />
                   </div>
-                </Link>
-              </Button>
+                  <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900">
+                    Receptions
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Grand reception halls for up to 220 guests with elegant dining and entertainment spaces.
+                  </p>
+                  <span className="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 transition-smooth group-hover:translate-x-2">
+                    View Pricing <ChevronRight size={16} />
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
